@@ -49,6 +49,28 @@ body {
  background-color: #69747e; /* Set your desired content background color */
 }
 
+/* main.css */
+#result {
+    margin-top: 100px; /* Adjust as needed */
+    padding: 20px;
+    background-color: #6e7781;
+    border-radius: 10px;
+}
+
+.person {
+    margin-bottom: 20px; /* Spacing between individual person data */
+}
+
+.person p {
+    margin: 5px 0;
+}
+
+.person img {
+    max-width: 100%; /* Ensure images don't overflow their container */
+    border-radius: 5px; /* Rounded corners for images */
+}
+
+
 .middle {
     width: 100%;
     height: 18px;
