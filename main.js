@@ -277,7 +277,6 @@ footer {
     
     document.head.appendChild(styleTag);
 });
-
 // main.js faylida saqlang
 var data = [
     {
@@ -287,7 +286,7 @@ var data = [
         Yosh: 18,
         "Soch rangi": "Qora",
         Boyi: 190,
-        Rasm: "Rasim.jpg" // Sizning shaxsiy rasmingizni nomi
+        Rasm: "istockphoto-1410538853-170667a.webp" // Sizning shaxsiy rasmingizni nomi
     },
     {
         ID: 1020,
@@ -314,7 +313,7 @@ function searchByID() {
             found = true;
             var personHTML = "<div class='person'>";
             for (var key in data[i]) {
-                if (data[i].hasOwnProperty(key)) {
+                if (data[i].hasOwnProperty(key) && key !== "P" && key !== "Rasm") { // P va Rasm xususiyatlarini olib tashlash
                     personHTML += "<p>" + key + ": " + data[i][key] + "</p>";
                 }
             }
@@ -329,4 +328,3 @@ function searchByID() {
         resultDiv.innerHTML = "Bunday ID topilmadi";
     }
 }
-
