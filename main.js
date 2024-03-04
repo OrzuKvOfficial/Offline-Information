@@ -278,53 +278,57 @@ footer {
     document.head.appendChild(styleTag);
 });
 // main.js faylida saqlang
-var data = [
-    {
-        ID: 1010,
-        Isim: "Orzubek",
-        Familya: "Kamariddinoov",
-        Yosh: 18,
-        "Soch rangi": "Qora",
-        Boyi: 190,
-        Rasm: "istockphoto-1410538853-170667a.webp" // Sizning shaxsiy rasmingizni nomi
-    },
-    {
-        ID: 1020,
-        Isim: "John",
-        Familya: "Doe",
-        Yosh: 30,
-        "Soch rangi": "Qizil",
-        Boyi: 180,
-        Rasm: "https://example.com/john.jpg" // Sizning rasmingizning URL manzili
-    },
-    // Qolgan obyektlar...
-    // 20 ta obyekt
-];
 
-function searchByID() {
-    var searchID = parseInt(document.getElementById("searchInput").value); // ID ni olish
-    var resultDiv = document.getElementById("result");
-    resultDiv.innerHTML = ""; // Natijani qayta yozishdan oldin divni bo'shatish
+    var data = [
+        {
+            ID: 1010,
+            Isim: "Orzubek",
+            Familya: "Kamariddinoov",
+            Yosh: 18,
+            "Soch rangi": "Qora",
+            Boyi: 190,
+            Rasm: "istockphoto-1410538853-170667a.webp" // Sizning shaxsiy rasmingizni nomi
+        },
+        {
+            ID: 1020,
+            Isim: "John",
+            Familya: "Doe",
+            Yosh: 30,
+            "Soch rangi": "Qizil",
+            Boyi: 180,
+            Rasm: "https://example.com/john.jpg" // Sizning rasmingizning URL manzili
+        },
+        // Qolgan obyektlar...
+        // 20 ta obyekt
+    ];
 
-    // Obyektlarni qidirish
-    var found = false;
-    for (var i = 0; i < data.length; i++) {
-        if (data[i].ID === searchID) {
-            found = true;
-            var personHTML = "<div class='person'>";
-            for (var key in data[i]) {
-                if (data[i].hasOwnProperty(key) && key !== "P" && key !== "Rasm") { // P va Rasm xususiyatlarini olib tashlash
-                    personHTML += "<p>" + key + ": " + data[i][key] + "</p>";
-                }
+    function searchByID() {
+        var searchID = parseInt(document.getElementById("searchInput").value); // ID ni olish
+        var resultDiv = document.getElementById("result");
+        resultDiv.innerHTML = ""; // Natijani qayta yozishdan oldin divni bo'shatish
+
+        // Obyektlarni qidirish
+        var found = false;
+        for (var i = 0; i < data.length; i++) {
+            if (data[i].ID === searchID) {
+                found = true;
+                var personHTML = "<div class='card'>";
+                personHTML += "<div class='card-body'>";
+                personHTML += "<h5 class='card-title'>" + data[i].Isim + " " + data[i].Familya + "</h5>";
+                personHTML += "<p class='card-text'>Yosh: " + data[i].Yosh + "</p>";
+                personHTML += "<p class='card-text'>Soch rangi: " + data[i]["Soch rangi"] + "</p>";
+                personHTML += "<p class='card-text'>Boyi: " + data[i].Boyi + "</p>";
+                personHTML += "<img src='" + data[i].Rasm + "' class='card-img-top' alt='" + data[i].Isim + "'>";
+                personHTML += "</div>";
+                personHTML += "</div>";
+                resultDiv.innerHTML += personHTML;
+                break;
             }
-            personHTML += "<img src='" + data[i].Rasm + "' alt='" + data[i].Isim + "' />";
-            personHTML += "</div>";
-            resultDiv.innerHTML += personHTML;
-            break;
+        }
+
+        if (!found) {
+            resultDiv.innerHTML = "<div class='alert alert-danger' role='alert'>Bunday ID topilmadi</div>";
         }
     }
 
-    if (!found) {
-        resultDiv.innerHTML = "Bunday ID topilmadi";
-    }
-}
+
