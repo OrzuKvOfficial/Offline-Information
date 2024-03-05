@@ -332,3 +332,14 @@ footer {
     }
 
 
+
+    // Şu anki tarih ve saat
+var simdikiZaman = new Date();
+
+// Saat, dakika ve saniyeyi alma
+var saat = simdikiZaman.getHours();
+var dakika = simdikiZaman.getMinutes();
+var saniye = simdikiZaman.getSeconds();
+
+// Sonucu yazdırma
+console.log('Şu anki saat: ' + saat + ':' + dakika + ':' + saniye);
