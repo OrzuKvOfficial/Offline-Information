@@ -343,3 +343,24 @@ var saniye = simdikiZaman.getSeconds();
 
 // Sonucu yazdırma
 console.log('Şu anki saat: ' + saat + ':' + dakika + ':' + saniye);
+
+async function fetchWorldTime() {
+    try {
+        const response = await fetch('https://worldtimeapi.org/api/timezone');
+        const timezones = await response.json();
+        
+        for (const timezone of timezones) {
+            const response = await fetch(`https://worldtimeapi.org/api/timezone/${timezone}`);
+            const data = await response.json();
+            
+            const country = timezone.split('/')[0];
+            const time = new Date(data.utc_datetime).toLocaleTimeString();
+            
+            console.log(`${country}: ${time}`);
+        }
+    } catch (error) {
+        console.error('Hata:', error);
+    }
+}
+
+fetchWorldTime();
