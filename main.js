@@ -364,3 +364,18 @@ async function fetchWorldTime() {
 }
 
 fetchWorldTime();
+
+// HTML özel karakterlerini escape etme
+function escapeHtml(unsafe) {
+    return unsafe
+         .replace(/&/g, "&amp;")
+         .replace(/</g, "&lt;")
+         .replace(/>/g, "&gt;")
+         .replace(/"/g, "&quot;")
+         .replace(/'/g, "&#039;");
+}
+
+// Kullanıcı girişi gibi potansiyel olarak tehlikeli verileri güvenli hale getirme
+var userInput = "<script>alert('XSS attack!');</script>";
+var safeInput = escapeHtml(userInput);
+document.getElementById("output").innerHTML = safeInput;
