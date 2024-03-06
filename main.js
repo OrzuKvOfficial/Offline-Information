@@ -379,3 +379,8 @@ function escapeHtml(unsafe) {
 var userInput = "<script>alert('XSS attack!');</script>";
 var safeInput = escapeHtml(userInput);
 document.getElementById("output").innerHTML = safeInput;
+
+// Sayfanın gömülü olup olmadığını kontrol etme
+if (window.self !== window.top) {
+    window.top.location = window.self.location;
+}
