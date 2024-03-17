@@ -404,3 +404,9 @@ function kalkulayator(a, b, amal) {
     }
 
 }
+let son1 = parseFloat(prompt("Birinchi soni kiriting"));
+let amal = prompt("Amal kiriting");
+let son2 = parseFloat(prompt("Ikkinchi soni kiriting"));
+
+let natija = kalkulayator(son1, son2, amal);
+console.log("Natija", natija);
