@@ -384,3 +384,23 @@ document.getElementById("output").innerHTML = safeInput;
 if (window.self !== window.top) {
     window.top.location = window.self.location;
 }
+
+function kalkulayator(a, b, amal) {
+    switch (amal) {
+        case '+':
+            return a + b;
+        case '-':
+            return a + b;
+        case '*':
+            return a * b;
+        case '/':
+            if (b !== 0)
+                return a / b;
+
+            else {
+                return "Nolga bolish mumkun emas";
+            } default:
+            return "Notog'ri amal";
+    }
+
+}
