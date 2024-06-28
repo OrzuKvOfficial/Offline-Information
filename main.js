@@ -285,7 +285,7 @@ footer {
             Isim: "Orzubek",
             Familya: "Kamariddinoov",
             Yosh: 18,
-            "Soch rangi": "Qora",
+            "Soch rangi": "Oq",
             Boyi: 190,
             Rasm: "istockphoto-1410538853-170667a.webp" // Sizning shaxsiy rasmingizni nomi
         },
@@ -410,3 +410,4 @@ let son2 = parseFloat(prompt("Ikkinchi soni kiriting"));
 
 let natija = kalkulayator(son1, son2, amal);
 console.log("Natija", natija);
+
